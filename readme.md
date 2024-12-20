@@ -9,7 +9,7 @@ This document provides a detailed explanation of the JSON structure for managing
 - **Description**: A unique identifier for the device.
 - **Example**: `"unique-device-id"`
 
-### 2. `metadata`
+### 2. `metadata` (Optional)
 - **Type**: Object
 - **Description**: Contains detailed information about the device.
   - `deviceType`: Type of the device (e.g., `sensor`).
@@ -28,11 +28,11 @@ This document provides a detailed explanation of the JSON structure for managing
   }
   ```
 
-### 3. `status`
+### 3. `status` (Optional)
 - **Type**: Object
-- **Description**: Provides the current network and registration status of the device.
+- **Description**: Provides the current status of the device.
   - `network`: Indicates if the device is online or offline.
-  - `registration`: Registration status of the device (e.g., `pending`).
+  - `registration`: Registration status of the device (e.g., `pending`, `registered`, `unregistered`).
 - **Example**:
   ```json
   {
@@ -41,12 +41,12 @@ This document provides a detailed explanation of the JSON structure for managing
   }
   ```
 
-### 4. `ioLights`
+### 4. `ioLights` (Optional)
 - **Type**: Array of Objects
 - **Description**: Represents the status and attributes of input/output indicator lights.
   - `id`: Unique identifier for the light.
   - `status`: Current status (e.g., `active`, `inactive`).
-  - `color`: Color of the light (e.g., `green`, `red`).
+  - `color`: Color of the light (e.g., `green`, `red`, `yellow`).
   - `message`: Description of the current light status.
 - **Example**:
   ```json
@@ -60,12 +60,12 @@ This document provides a detailed explanation of the JSON structure for managing
   ]
   ```
 
-### 5. `data`
+### 5. `data` (Optional)
 - **Type**: Array of Objects
 - **Description**: Contains data readings from the device.
   - `name`: Name of the data (e.g., `speed`, `fuel`).
   - `value`: Measured value.
-  - `unit`: Unit of the value (e.g., `km/h`, `l`, `Celsius`).
+  - `unit`: Unit of the value (e.g., `km/h`, `l`).
   - `series`: Identifier for the data series.
   - `description`: Description of the data point.
   - `timestamp`: Timestamp when the data was collected (ISO 8601 format).
@@ -83,11 +83,11 @@ This document provides a detailed explanation of the JSON structure for managing
   ]
   ```
 
-### 6. `alerts`
+### 6. `alerts` (Optional)
 - **Type**: Array of Objects
 - **Description**: Contains alert messages for critical events.
   - `type`: Type of alert (e.g., `overheat`).
-  - `severity`: Severity level (e.g., `critical`).
+  - `severity`: Severity level (e.g., `critical`, `warning`, `info`).
   - `message`: Alert message.
   - `timestamp`: Timestamp of the alert (ISO 8601 format).
 - **Example**:
@@ -102,11 +102,11 @@ This document provides a detailed explanation of the JSON structure for managing
   ]
   ```
 
-### 7. `actions`
+### 7. `actions` (Optional)
 - **Type**: Array of Objects
 - **Description**: Represents actions performed or pending on the device.
-  - `type`: Action type (e.g., `register_device`).
-  - `status`: Current status of the action (e.g., `pending`).
+  - `type`: Action type (e.g., `register_device`, `update_firmware`, `reset_device`).
+  - `status`: Current status of the action (e.g., `pending`, `completed`, `failed`).
   - `data`: Related data for the action.
   - `timestamp`: Timestamp of the action (ISO 8601 format).
 - **Example**:
@@ -130,7 +130,7 @@ This document provides a detailed explanation of the JSON structure for managing
   ]
   ```
 
-### 8. `errors`
+### 8. `errors` (Optional)
 - **Type**: Array of Objects
 - **Description**: Represents errors encountered by the device.
   - `code`: Error code.
@@ -149,6 +149,6 @@ This document provides a detailed explanation of the JSON structure for managing
 
 ## Notes
 - All timestamps are in ISO 8601 format.
-- Ensure unique identifiers for elements like `ioLights` and `actions` to avoid conflicts.
 - Follow standard conventions when extending the schema to ensure compatibility.
+- This schema can be extended with additional fields as required. Updates to the schema will be reflected in this document.
 
