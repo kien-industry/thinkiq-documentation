@@ -278,8 +278,7 @@ This document provides a detailed explanation of the JSON structure for managing
 - **`metadata`** _(Object, Optional)_: Contains additional information about the device.
 - **`status`** _(Object, Optional)_: Provides the system's operational state.
 - **`data`** _(Array)_: An array of data points collected by the device.
-- **`alarms`** _(Array, Optional)_: Alarms triggered by the device.
-- **`notifications`** _(Array, Optional)_: Notifications sent by the device.
+- **`alerts`** _(Array, Optional)_: Alerts triggered by the device.
 - **`actions`** _(Array, Optional)_: Actions requested by the device.
 - **`errors`** _(Array, Optional)_: Error or issue reporting from the device.
 
